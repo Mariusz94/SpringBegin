@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>zipcode</title>
+</head>
+<body>
+<center>
+    <h1>
+        <span th:style="'color:' + (${isValid} ? 'blue' : 'red')" th:text="(${isValid} ? 'Kod jest poprawny' : 'Kod jest błędny, zmieniaj')"></span>
+    </h1>
+</center>
+
+</body>
+</html>
