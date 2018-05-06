@@ -6,15 +6,19 @@
 </head>
 <body>
 <center>
-    <form method="post" action="/login">
-        Login: <input type="text" th:name="login" placeholder="Login">
+    <form method="post" action="/register" th:object="${registerForm}">
+        <span th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Error</span>
+        Login: <input type="text" th:field="*{login}" placeholder="Login">
         <br/>
-        Haslo: <input type="password" th:name="password" placeholder="Hałso">
+        <span style="color: red" th:if="${errorPassword}">Hasła nie są takie same!<br/></span>
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</span>
+        Haslo: <input type="password" th:field="*{password}" placeholder="Hałso">
         <br/>
-        <span th:if="errorPassword">hasła nie są takie same!</span>
-        Powtórz hasło: <input type="password" th:name="repeatPasword" placeholder="Powtórz hasło">
+        <span th:if="${#fields.hasErrors('repeatPassword')}" th:errors="*{repeatPassword}">Error</span>
+        Powtórz hasło: <input type="password" th:field="*{repeatPassword}" placeholder="Powtórz hasło">
         <br/>
-        Email: <input type="email" th:name="email" placeholder="email">
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error</span>
+        Email: <input type="email" th:field="*{email}" placeholder="email">
         <br/>
         <input type="submit" value="Zarejestruj">
     </form>
