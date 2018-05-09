@@ -24,7 +24,7 @@ public class LoginController {
         if (login.equals("Mariusz") && password.equals("mariusz")) {
             return "Zalogowno";
         }
-        return "Błędne hasło";
+        return "Błędne dane";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
